@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'main_pages/index'
+
   resources :categories
 
   resources :cities
