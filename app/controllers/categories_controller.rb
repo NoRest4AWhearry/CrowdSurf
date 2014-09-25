@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-	before_filter admin
+	before_action :authenticate_user!
+	before_action :admin
 	def new
 		@category = Category.new
 	end

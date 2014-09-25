@@ -1,6 +1,5 @@
 class CitiesController < ApplicationController
-	before_filter admin
-
+	before_action :admin
 	def new
 		@city = City.new
 	end

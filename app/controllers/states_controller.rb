@@ -1,5 +1,5 @@
 class StatesController < ApplicationController
-	before_filter admin
+	before_action :admin
 
 	def new
 		@state = State.new
