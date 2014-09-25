@@ -1,2 +1,20 @@
 class Event < ActiveRecord::Base
+	dragonfly_accessor :flyer
+
+	# Database Relationships
+	belongs_to :user
+	belongs_to :state
+	belongs_to :city
+	belongs_to :category
+
+	# Validations
+	validates_presence_of :title, :location_name, :details, :category_id, :state, :city_id
+	validates :title, length: {maximum: 50}
+	validates :street, length: {maximum: 500}, allow_nil: true
+	validates :zip, length: {is: 5}
+	validates :youtube_id, length: {maximum: 100}, allow_nil: true
+
+	geocoded_by :address
+	after_validation :geocode, if: ->(obj){obj.address.present? and obj.address_changed}
+
 end
