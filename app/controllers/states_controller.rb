@@ -1,4 +1,6 @@
 class StatesController < ApplicationController
+	before_filter admin
+
 	def new
 		@state = State.new
 	end

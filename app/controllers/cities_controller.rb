@@ -1,4 +1,6 @@
 class CitiesController < ApplicationController
+	before_filter admin
+
 	def new
 		@city = City.new
 	end

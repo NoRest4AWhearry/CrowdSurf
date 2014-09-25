@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+	before_filter admin
 	def new
 		@category = Category.new
 	end
