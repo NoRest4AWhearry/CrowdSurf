@@ -6,7 +6,11 @@ class CitiesController < ApplicationController
 
 	def create
 		@city = City.new(city_params)
-		@city.save
+		if @city.save
+			redirect_to admin_panel_index_url
+		else
+			render new
+		end
 	end
 
 	def edit
@@ -16,6 +20,7 @@ class CitiesController < ApplicationController
 	def update
 		@city = City.find(params[:id])
 		@city.update_attributes(city_params)
+		redirect_to admin_panel_index_url
 	end
 
 	def destroy

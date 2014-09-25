@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin_panel/index'
+
   root to: 'main_pages#index'
 
   resources :categories
