@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :categories
+
+  resources :cities
+
+  resources :states
+
   resources :events
 
   devise_for :users
