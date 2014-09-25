@@ -9,7 +9,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'geocoder'
 gem 'devise'
-gem 'dragonfly'
+gem 'dragonfly', '~> 1.0.7'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 group :development, :test do
