@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925040606) do
+ActiveRecord::Schema.define(version: 20140925042214) do
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.string   "location_name"
+    t.string   "street"
+    t.string   "city_id"
+    t.string   "state_id"
+    t.string   "zip"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "youtube_id"
+    t.integer  "category_id"
+    t.string   "flyer_uid"
+    t.string   "flyer_name"
+    t.text     "details"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
