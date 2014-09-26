@@ -8,7 +8,7 @@ class StatesController < ApplicationController
 	def create
 		@state = State.new(state_params)
 		if state.save
-			redirect_to admin_panel_index_url
+			redirect_to admin_url
 		else
 			render new
 		end
@@ -21,7 +21,7 @@ class StatesController < ApplicationController
 	def update
 		@state = State.find(params[:id])
 		@state.update_attributes(state_params)
-		redirect_to admin_panel_index_url
+		redirect_to admin_url
 	end
 
 	def destroy

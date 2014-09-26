@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'admin_panel/index'
 
   root to: 'main_pages#index'
+
+  match 'admin', to: 'admin_panel#index', via: 'get'
 
   resources :categories
 
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
 	end
 
 	resources :relationships, only: [:create, :destroy]
+  resources :event_likes, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

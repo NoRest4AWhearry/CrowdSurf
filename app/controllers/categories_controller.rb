@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 	def create
 		@category = Category.new(category_params)
 		if @category.save
-			redirect_to admin_panel_index_url
+			redirect_to admin_url
 		else
 			render new
 		end
@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
 	def update
 		@category = Category.find(params[:id])
 		@category.update_attributes(category_params)
-		redirect_to admin_panel_index_url
+		redirect_to admin_url
 	end
 
 	def destroy
