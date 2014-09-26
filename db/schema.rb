@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925043652) do
+ActiveRecord::Schema.define(version: 20140926141228) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20140925043652) do
   end
 
   add_index "events", ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
+
+  create_table "likes", force: true do |t|
+    t.integer  "liker_id"
+    t.integer  "liked_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["liked_id"], name: "index_likes_on_liked_id"
+  add_index "likes", ["liker_id", "liked_id"], name: "index_likes_on_liker_id_and_liked_id", unique: true
+  add_index "likes", ["liker_id"], name: "index_likes_on_liker_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

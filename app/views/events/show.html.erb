@@ -1,1 +1,2 @@
 <h1><%= @event.title %></h1>
+<%= render 'like_form' if signed_in? %>

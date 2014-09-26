@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: "followed_id", class_name:  "Relationship", dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  has_many :likes, foreign_key: "liker_id", dependent: :destroy
+  has_many :liked_events, through: :likes, source: :liked
+
 	# Validations
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   USERNAME_REGEX = /\A[a-zA-Z0-9]+\Z/
@@ -37,5 +40,17 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
 	  relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+	def liked?(event)
+		likes.find_by(liked_id: event.id)
+	end
+
+	def like!(event)
+		likes.create!(liked_id: event.id)
+	end
+
+  def unlike!(event)
+	  likes.find_by(liked_id: event.id).destroy
   end
 end

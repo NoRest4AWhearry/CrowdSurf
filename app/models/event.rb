@@ -7,6 +7,9 @@ class Event < ActiveRecord::Base
 	belongs_to :city
 	belongs_to :category
 
+	has_many :reverse_likes, foreign_key: "liked_id", class_name: "Like", dependent: :destroy
+	has_many :likers, through: :reverse_likes, source: :liker
+
 	#s
 
 	# Validations
