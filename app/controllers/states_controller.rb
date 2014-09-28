@@ -7,7 +7,7 @@ class StatesController < ApplicationController
 
 	def create
 		@state = State.new(state_params)
-		if state.save
+		if @state.save
 			redirect_to admin_url
 		else
 			render new
