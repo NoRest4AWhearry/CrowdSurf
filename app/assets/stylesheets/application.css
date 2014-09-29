@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-inverse {
+    background-color: #062046 !important;
+    border-color: #062046 !important;
+}
