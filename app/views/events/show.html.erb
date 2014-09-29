@@ -81,19 +81,25 @@
         </div>
       <% end %>
       <div class="event-details">
+        <b>EVENT DETAILS</b>
         <%= simple_format(@event.details) %>
       </div>
     </div>
     <!-- Event Sidebar -->
     <div class="event-col-b col-md-4">
       <div class="event-guest">
-        <h2>Guest</h2>>
-        <hr>
-        <p>Attending</p>>
-        <hr>
-        <p>Maybe</p>>
-        <hr>
-        <p>declined</p>>
+        <% if user_signed_in? %>
+          <h2>Guest</h2>
+          <hr>
+          <p>Attending</p>
+          <hr>
+          <p>Maybe</p>
+          <hr>
+          <p>declined</p>
+        <% else %>
+          <h2>Guest</h2>
+          <p>Find out who's going by singing in <%= link_to "here", new_user_session_path %></p>
+        <% end %>
       </div>
       <div class="nearby">
         <h3>Nearby Events</h3>
