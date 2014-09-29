@@ -3,15 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Index
+#show_body {
+  background-image: url("ALLEN_BDAY.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+}
 .event {
   margin-bottom: 15px;
+  background: rgba(255,255,255,0.9);
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
   .card {
     background-image: url("ALLEN_BDAY.jpg");
     background-size: cover;
     background-position: center center;
     cursor: pointer;
     text-shadow: 1px 1px 0px #000;
-    color: white;
+    color: #05B8CC;
     font-weight: bold;
     font-size: 12px;
     height: 250px;

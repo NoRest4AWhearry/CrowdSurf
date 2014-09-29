@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
+		@body_id = 'show_body'
 	end
 
 	def new

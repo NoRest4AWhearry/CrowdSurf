@@ -1,18 +1,17 @@
 <% provide(:title, "#{@event.title}") %>
-<div class="page-header">
-  <h1><%= @event.title %></h1>
-  <% if current_user == @event.user %>
-    <span><%= link_to "Edit", edit_event_path %></span>
+<div class="event col-sm-12">
+  <div class="page-header">
+    <h1><%= @event.title %></h1>
+    <% if current_user == @event.user %>
+      <span><%= link_to "Edit", edit_event_path %></span>
     <span><%= link_to "Delete", @event, method: :delete,
                       data: { confirm: "Are you sure you want to delet #{@event.title}?"}, title: @event.title %>
     </span>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= render 'events/like_form' %>
-  <% end %>
-</div>
-
-<div class="event">
+    <% end %>
+    <% if user_signed_in? %>
+      <%= render 'events/like_form' %>
+    <% end %>
+  </div>
   <div class="event-flyer"></div>
 
   <div class="event-header">
@@ -99,7 +98,7 @@
       <div class="nearby">
         <h3>Nearby Events</h3>
         <ul>
-          <% for event in @event.nearbys(10) %>
+          <% for event in @event.nearbys(10).limit(5) %>
             <li><%= link_to event.title, event %> (<%= event.distance.round(2) %> miles)</li>
           <% end %>
         </ul>
