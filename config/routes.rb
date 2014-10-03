@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :ticket_types
 
   root to: 'main_pages#index'
+  match 'about', to: 'main_pages#about', via: 'get'
 
   match 'admin', to: 'admin_panel#index', via: 'get'
 
