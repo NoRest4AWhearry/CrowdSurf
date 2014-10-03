@@ -26,7 +26,7 @@
     <div class="event <%= "event-#{event.id}" %> col-md-4">
       <div class="event-info card">
         <div class="gradient">
-          <div class="event-details">
+          <div class="event-index-details">
             <h4><%= link_to event.title, event_path(event) %></h4>
             <span class="location"><%= event.location_name %></span><br>
             <span class="address"><%= "#{event.city.name}, #{event.state.name} #{event.zip}" %></span><br>
