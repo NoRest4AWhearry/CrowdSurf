@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926141228) do
+ActiveRecord::Schema.define(version: 20141003071210) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20140926141228) do
   add_index "likes", ["liker_id", "liked_id"], name: "index_likes_on_liker_id_and_liked_id", unique: true
   add_index "likes", ["liker_id"], name: "index_likes_on_liker_id"
 
+  create_table "purchases", force: true do |t|
+    t.integer  "purchaser_id"
+    t.integer  "ticket_type_id"
+    t.integer  "quantity"
+    t.decimal  "cost",           precision: 9, scale: 2
+    t.decimal  "ticket_fee",     precision: 9, scale: 2
+    t.datetime "purchased_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -73,6 +84,24 @@ ActiveRecord::Schema.define(version: 20140926141228) do
 
   create_table "states", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ticket_types", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "event_id"
+    t.decimal  "cost",        precision: 9, scale: 2
+    t.decimal  "ticket_fee",  precision: 9, scale: 2
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.integer  "ticket_type_id"
+    t.integer  "purchase_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :purchases
+
+  resources :tickets
+
+  resources :ticket_types
+
   root to: 'main_pages#index'
 
   match 'admin', to: 'admin_panel#index', via: 'get'
