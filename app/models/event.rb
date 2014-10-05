@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
 	has_many :reverse_likes, foreign_key: "liked_id", class_name: "Like", dependent: :destroy
 	has_many :likers, through: :reverse_likes, source: :liker
 
+	accepts_nested_attributes_for :ticket_types, allow_destroy: true
+
 
 	# Validations
 	validates_presence_of :title, :location_name, :details, :category_id, :state, :city_id

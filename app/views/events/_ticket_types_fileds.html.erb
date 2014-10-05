@@ -1,0 +1,12 @@
+<fieldset>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: 'General Admission' %><br/>
+  <%= f.label 'Details' %>
+  <%= f.text_area :description, rows: 3, placeholder: 'Add your details' %><br/>
+  <%= f.label :cost %>
+  <%= f.number_field :cost, placeholder: '15.00' %><br/>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, placeholder: '100' %><br/>
+  <%= f.hidden_field :_destroy %>
+  <%= f.check_box :_destroy %>
+</fieldset>

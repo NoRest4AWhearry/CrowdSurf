@@ -80,6 +80,29 @@
           </div>
         </div>
       <% end %>
+
+      <% if @event.ticket_types.present? %>
+        <div class="event-tickets">
+          <table style="width: 100%;">
+            <tr class="ticket-header">
+              <td>Name</td>
+              <td>Cost</td>
+              <td>Fee</td>
+              <td>Total Price</td>
+              <td></td>
+            </tr>
+          <% @event.ticket_types.each do |ticket| %>
+            <tr class="ticket-types">
+              <td><%= ticket.name %></td>
+              <td><%= number_to_currency(ticket.cost) %></td>
+              <td><%= number_to_currency(ticket.ticket_fee) %></td>
+              <td><%= number_to_currency(ticket.total_price) %></td>
+              <td><button class="btn btn-success btn-xs">Get Now!</button> </td>
+            </tr>
+          <% end %>
+          </table>
+        </div>
+      <%end %>
       <div class="event-details">
         <b>EVENT DETAILS</b>
         <%= simple_format(@event.details) %>

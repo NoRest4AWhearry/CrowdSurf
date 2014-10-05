@@ -40,11 +40,29 @@
   .event-header {
     border-bottom: 1px solid #000;
   }
-  .event-summary, .event-video, .event-details, .event-guest {
+  .event-summary, .event-video, .event-tickets, .event-details, .event-guest {
     background: rgba(255,255,255,0.9);
     margin: 10px 0;
     border-radius: 3px;
     padding: 5px;
+  }
+  .event-tickets {
+    .ticket-header {
+      background-color: #062046;
+      border-color: #062046;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    .ticket-types {
+      margin-bottom: 10px;
+      td {
+        padding: 5px;
+        text-align: center;
+      }
+    }
   }
 }
 .video-container {

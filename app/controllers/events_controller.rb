@@ -15,6 +15,7 @@ class EventsController < ApplicationController
 
 	def new
 		@event = current_user.events.build
+		1.times { @event.ticket_types.build }
 	end
 
 	def create
@@ -50,7 +51,10 @@ class EventsController < ApplicationController
 	private
 
 	def event_params
-		params.require(:event).permit(:title, :location_name, :street, :city_id, :state_id, :zip, :start, :end, :details,
-		                              :category_id, :youtube_id, :flyer, :longitude, :latitude)
+		params.require(:event).permit(:title, :location_name, :street, :city_id,
+		                              :state_id, :zip, :start, :end, :details,
+		                              :category_id, :youtube_id, :flyer,
+		                              :longitude, :latitude,
+		                              :ticket_types_attributes => [:id, :name, :description, :cost, :quantity, :_destroy])
 	end
 end
