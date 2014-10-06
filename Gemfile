@@ -11,6 +11,7 @@ gem 'geocoder'
 gem 'devise'
 gem 'dragonfly', '~> 1.0.7'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 group :development, :test do
 	gem 'sqlite3'
