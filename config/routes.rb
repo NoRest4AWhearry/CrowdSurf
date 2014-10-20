@@ -1,23 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :purchases
-
-  resources :tickets
-
-  resources :ticket_types
-
   root to: 'main_pages#index'
+
   match 'about', to: 'main_pages#about', via: 'get'
 
   match 'admin', to: 'admin_panel#index', via: 'get'
-
-  resources :categories
-
-  resources :cities
-
-  resources :states
-
-  resources :events
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
@@ -27,8 +14,14 @@ Rails.application.routes.draw do
 		end
 	end
 
+  resources :events
+
+  resources :tickets, :ticket_types, :categories, :cities, :states, :purchases
+
 	resources :relationships, only: [:create, :destroy]
+
   resources :likes, only: [:create, :destroy]
+  
   resources :attends, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
