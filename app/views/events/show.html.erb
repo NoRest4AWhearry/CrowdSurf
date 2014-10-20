@@ -111,10 +111,17 @@
     <!-- Event Sidebar -->
     <div class="event-col-b col-md-4">
       <div class="event-guest">
-
+        <% if user_signed_in? %>
+          <%= render 'events/attend_form' %>
+        <% end %>
         <% if user_signed_in? %>
           <h2>Guest</h2>
-          Guests
+          <div id="attendees_count"><%= @event.attendees.count %></div>
+          <ul id="attendees">
+            <% @attendees.each do |attendee| %>
+            <li><%= link_to attendee.username, attendee %></li>
+            <% end %>
+          </ul>
         <% else %>
           <h2>Guest</h2>
           <p>Find out who's going by singing in <%= link_to "here", new_user_session_path %></p>

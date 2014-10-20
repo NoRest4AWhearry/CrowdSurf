@@ -12,6 +12,9 @@ class Event < ActiveRecord::Base
 	has_many :reverse_likes, foreign_key: "liked_id", class_name: "Like", dependent: :destroy
 	has_many :likers, through: :reverse_likes, source: :liker
 
+	has_many :reverse_attends, foreign_key: "attended_id", class_name: "Attend", dependent: :destroy
+	has_many :attendees, through: :reverse_attends, source: :attendee
+
 	accepts_nested_attributes_for :ticket_types, allow_destroy: true
 
 

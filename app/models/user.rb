@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   has_many :likes, foreign_key: "liker_id", dependent: :destroy
   has_many :liked_events, through: :likes, source: :liked
 
+  has_many :attends, foreign_key: "attendee_id", dependent: :destroy
+  has_many :attended_events, through: :attends, source: :attended
+
 	# Validations
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   USERNAME_REGEX = /\A[a-zA-Z0-9]+\Z/
@@ -53,4 +56,16 @@ class User < ActiveRecord::Base
   def unlike!(event)
 	  likes.find_by(liked_id: event.id).destroy
   end
+
+	def attending?(event)
+		attends.find_by(attended_id: event.id)
+	end
+
+	def attend!(event)
+		attends.create!(attended_id: event.id)
+	end
+
+	def leave!(event)
+		attends.find_by(attended_id: event.id).destroy
+	end
 end
