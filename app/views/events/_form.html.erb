@@ -78,7 +78,7 @@
         <%= f.fields_for :ticket_types do |builder| %>
           <%= render 'ticket_type_fields', f: builder %>
         <% end %>
-        <%= link_to_add_fields "Add Ticket", f, :ticket_types %>
+        <%= link_to_add_fields " Add Ticket", f, :ticket_types %>
       </div>
     </div>
     <div class="actions form-group">

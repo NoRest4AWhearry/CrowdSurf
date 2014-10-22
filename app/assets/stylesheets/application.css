@@ -18,3 +18,15 @@
     background-color: #062046 !important;
     border-color: #062046 !important;
 }
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: white;
+    background-color: #062046 !important;
+    border-color: #062046 !important;
+}
+.jumbotron {
+    background-color: transparent !important;
+}
+main {
+    margin-top: 50px;
+}
