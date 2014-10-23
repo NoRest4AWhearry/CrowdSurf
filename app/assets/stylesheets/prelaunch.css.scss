@@ -1,6 +1,6 @@
 body {
   position: relative;
-  background-image: url("Downtown_atlanta_night.jpg");
+  background-image: image-url("Downtown_atlanta_night.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
@@ -22,7 +22,7 @@ body {
   padding-top: 50px;
 }
 #about, #contact {
-  background-image: url("concert2.jpg");
+  background-image: image-url("concert2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
