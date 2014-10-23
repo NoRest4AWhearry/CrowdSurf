@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'main_pages#index'
+  get 'main_pages/index'
+
+  root to: 'prelaunch#index'
 
   match 'about', to: 'main_pages#about', via: 'get'
 
