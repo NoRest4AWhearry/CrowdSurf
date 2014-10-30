@@ -37,7 +37,7 @@
 /* Declare heights because of positioning of img element */
 .carousel .item {
   height: 700px;
-  background-color: #777;
+  background-color: transparent;
 }
 .carousel-inner > .item > img {
   position: absolute;
@@ -45,4 +45,12 @@
   left: 0;
   min-width: 100%;
   height: 700px;
+}
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: none !important;
+}
+.carousel-control.left {
+  background-image: none !important;
 }
