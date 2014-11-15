@@ -1,4 +1,21 @@
+require 'api_constraints'
 Rails.application.routes.draw do
+
+  namespace :api, defaults: {format: 'json'}, :path => '', constraints: {subdomain: 'api'} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :events
+      resources :users, only: [:index, :show]
+      resources :relationships, only: [:create, :destroy]
+      resources :likes, only: [:create, :destroy]
+      resources :attends, only: [:create, :destroy]
+      devise_scope :user do
+        match '/login' => 'sessions#create', :via => :post
+        match '/logout' => 'sessions#destroy', :via => :delete
+        match '/sign_up' => 'registrations#create', :via => :post
+      end
+    end
+  end
+
 
   get 'main_pages/index'
 
