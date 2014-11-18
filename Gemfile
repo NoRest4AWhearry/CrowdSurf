@@ -12,6 +12,7 @@ gem 'dragonfly'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'active_model_serializers'
 group :development, :test do
 	gem 'sqlite3'
 end

@@ -12,8 +12,7 @@ class Api::V1::EventsController < EventsController
 
   def show
     @event = Event.find(params[:id])
-    @ticket_types = @event.ticket_types
-    respond_with @event, @ticket_types
+    respond_with @event
   end
 
   def new
