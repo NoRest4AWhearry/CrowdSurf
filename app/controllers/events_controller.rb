@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_action :authenticate_user!, except: :show
+	#before_action :authenticate_user!, except: :show
 	def index
 		if params[:search].present?
 			@events = Event.near(params[:search], 25)
