@@ -16,9 +16,12 @@ gem 'active_model_serializers'
 group :development, :test do
 	gem 'sqlite3'
 end
+
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
 end
+
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'unicorn'
